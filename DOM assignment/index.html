@@ -1,0 +1,27 @@
+<html>
+    <script>
+        async function populateDiv(){
+            const a = document.getElementById("Principle").value;
+            const b = document.getElementById("Rate").value;
+            const c = document.getElementById("Time").value;
+            // console.log(a);
+            // console.log(b);
+            
+            const response = await fetch("https://sum-server.100xdevs.com/interest?principal=" + a + "&rate=" + b + "&time=" +c);
+            console.log(response);
+            const ans = await response.json();
+            console.log(ans);
+            // console.log(total);
+            document.getElementById("total").innerHTML = ans.total;
+            document.getElementById("interest").innerHTML = ans.interest;
+        }
+    </script>
+    <body>
+        <input id="Principle" type="text" placeholder="Principle"></input><br></br>
+        <input id="Rate" type="text" placeholder="Rate"></input><br></br>
+        <input id="Time" type="text" placeholder="Time"></input><br></br>
+        <button onclick="populateDiv()">Calculate</button><br></br>
+        <div id="total"></div><br></br>
+        <div id="interest"></div><br></br>
+    </body>
+</html>

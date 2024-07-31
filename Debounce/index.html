@@ -1,0 +1,18 @@
+<html>
+    <script>
+        let timeOut;
+        function debouncedPopulateDiv(){
+           clearTimeout(timeOut);
+           timeOut=setTimeout(function() {
+            populateDiv();
+           },1000);
+        }
+        function populateDiv(){
+            console.log("hello");
+        }
+    </script>
+    <body>
+        <input oninput="debouncedPopulateDiv()" type="text" placeholder="Enter"></input>
+        
+    </body>
+</html>
